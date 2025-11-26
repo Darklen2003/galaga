@@ -308,23 +308,18 @@ class GalagaGame {
 
         const usernameInput = document.getElementById('usernameInput');
         if (usernameInput) {
-            // Останавливаем всплытие клика, чтобы не запускался startScreen
             usernameInput.addEventListener('click', (e) => e.stopPropagation());
-            // Также предотвращаем старт по пробелу, если фокус в инпуте
             usernameInput.addEventListener('keydown', (e) => e.stopPropagation());
         }
         const lbBtn = document.getElementById('leaderboardBtn');
         const backBtn = document.getElementById('backBtn');
 
-        // Кнопка открытия таблицы (останавливаем всплытие, чтобы игра не началась)
         if (lbBtn) {
             lbBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 this.showLeaderboard();
             });
         }
-
-        // Кнопка "Назад"
         if (backBtn) {
             backBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -342,7 +337,6 @@ class GalagaGame {
         this.score = 0; this.lives = 3; this.wave = 1; this.stats = { shots: 0, hits: 0 };
         this.resetBuffs();
         this.updateHUD();
-        // Используем toggle классов для управления видимостью
         const startScreen = document.getElementById('startScreen');
         startScreen.classList.add('hidden');
         startScreen.classList.remove('flex');
@@ -567,7 +561,6 @@ class GalagaGame {
         }
     }
     async showLeaderboard() {
-        // Скрываем меню, показываем таблицу
         document.getElementById('startScreen').classList.add('hidden');
         document.getElementById('startScreen').classList.remove('flex');
 
@@ -579,23 +572,20 @@ class GalagaGame {
         list.innerHTML = '<li class="text-center text-gray-500 animate-pulse">LOADING DATA...</li>';
 
         try {
-            // Запрашиваем данные у нашего сервера
             const res = await fetch('/api/leaderboard');
             const data = await res.json();
 
-            list.innerHTML = ''; // Очищаем список
+            list.innerHTML = ''; 
 
             if (data.length === 0) {
                 list.innerHTML = '<li class="text-center text-gray-500">NO RECORDS YET</li>';
                 return;
             }
 
-            // Генерируем HTML для каждого игрока
             data.forEach((entry, index) => {
                 const li = document.createElement('li');
                 li.className = 'flex justify-between text-white border-b border-gray-800 pb-1';
 
-                // Раскрашиваем топ-3
                 let rankColor = 'text-gray-400';
                 if (index === 0) rankColor = 'text-yellow-400';
                 if (index === 1) rankColor = 'text-gray-300';
