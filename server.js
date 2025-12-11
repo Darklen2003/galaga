@@ -9,8 +9,8 @@ app.use(express.json());
 app.use(express.static(__dirname)); 
 
 mongoose.connect(MONGO_URI)
-    .then(() => console.log('✅ MongoDB connected successfully'))
-    .catch(err => console.error('❌ MongoDB connection error:', err));
+    .then(() => console.log(' MongoDB connected successfully'))
+    .catch(err => console.error(' MongoDB connection error:', err));
 
 const ScoreSchema = new mongoose.Schema({
     username: String,
@@ -41,4 +41,4 @@ app.get('/api/leaderboard', async (req, res) => {
 });
 
 const PORT = 80;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(` Server running on port ${PORT}`));

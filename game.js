@@ -1,9 +1,6 @@
-/** GALAGA JS EXTENDED FIXED **/
-
 const CANVAS_WIDTH = 480;
 const CANVAS_HEIGHT = 640;
 
-// SVG Assets
 const SVG_ASSETS = {
     PLAYER: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M15 2 L17 2 L17 6 L19 8 L19 14 L24 18 L24 24 L20 24 L20 20 L18 20 L18 26 L14 26 L14 20 L12 20 L12 24 L8 24 L8 18 L13 14 L13 8 L15 6 Z' fill='%23EEEEEE'/%3E%3Cpath d='M15 8 L17 8 L17 14 L15 14 Z' fill='%23FF0000'/%3E%3Cpath d='M8 18 L12 18 L12 22 L8 22 Z' fill='%2300AAFF'/%3E%3Cpath d='M20 18 L24 18 L24 22 L20 22 Z' fill='%2300AAFF'/%3E%3C/svg%3E`,
     ZAKO: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 4 L16 4 L18 6 L18 10 L16 14 L14 12 L10 12 L8 14 L6 10 L6 6 Z' fill='%2300FF00'/%3E%3Crect x='8' y='6' width='2' height='2' fill='yellow'/%3E%3Crect x='14' y='6' width='2' height='2' fill='yellow'/%3E%3Cpath d='M2 8 L6 8 L6 10 L2 10 Z' fill='%2300AA00'/%3E%3Cpath d='M18 8 L22 8 L22 10 L18 10 Z' fill='%2300AA00'/%3E%3Cpath d='M8 14 L6 18 L8 18 L10 14 Z' fill='%2300AA00'/%3E%3Cpath d='M16 14 L18 18 L16 18 L14 14 Z' fill='%2300AA00'/%3E%3C/svg%3E`,
